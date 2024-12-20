@@ -1,0 +1,179 @@
+2024-12-20 03:00:42 [INFO] Login page launched.
+2024-12-20 03:00:54 [INFO] Admin logged in successfully.
+2024-12-20 03:00:54 [INFO] Dashboard launched.
+2024-12-20 03:00:57 [INFO] Navigating to New Student form.
+2024-12-20 03:01:10 [INFO] Attempting to insert student: 012, sara
+2024-12-20 03:01:10 [INFO] Successfully inserted student: 012, sara
+2024-12-20 03:01:19 [INFO] Login page launched.
+2024-12-20 03:01:25 [INFO] Student logged in successfully. Username: sara
+2024-12-20 03:01:28 [INFO] Student clicked 'Borrow Book'
+2024-12-20 03:01:51 [INFO] Borrow button clicked - Book ID: 1, Student ID: swe, Borrow Date: 04-12-2024, Due Date: 06-12-2024
+2024-12-20 03:01:54 [INFO] Book successfully borrowed again: Book ID 1
+2024-12-20 03:02:26 [INFO] Borrow button clicked - Book ID: 2, Student ID: 012, Borrow Date: 12-12-2024, Due Date: 04-12-2024
+2024-12-20 03:02:27 [INFO] Book successfully borrowed again: Book ID 2
+2024-12-20 03:02:31 [INFO] Closing Borrow window and returning to Student Dashboard.
+2024-12-20 03:02:32 [INFO] Student clicked 'Return Book'
+2024-12-20 03:02:37 [INFO] Searching for book with ID: 1 and student ID: 012
+2024-12-20 03:02:38 [INFO] Book not found for studentID: 012
+2024-12-20 03:02:41 [INFO] Searching for book with ID: 2 and student ID: 012
+2024-12-20 03:02:41 [INFO] Book found and information displayed for bookID: 2
+2024-12-20 03:02:43 [INFO] Attempting to return book with ID: 2 by studentID: 012
+2024-12-20 03:02:44 [INFO] Book returned successfully for studentID: 012
+2024-12-20 03:02:56 [INFO] Searching for book with ID: 1 and student ID: swe
+2024-12-20 03:02:56 [INFO] Book found and information displayed for bookID: 1
+2024-12-20 03:02:57 [INFO] Attempting to return book with ID: 1 by studentID: swe
+2024-12-20 03:02:59 [INFO] Book returned successfully for studentID: swe
+2024-12-20 03:03:00 [INFO] Return book form closed and StudentDashboard opened.
+2024-12-20 03:03:01 [INFO] Student clicked 'Logout'
+2024-12-20 03:03:02 [INFO] User exited the login page.
+2024-12-20 12:42:50 [INFO] Login page launched.
+2024-12-20 12:42:59 [INFO] Admin logged in successfully.
+2024-12-20 12:42:59 [INFO] Dashboard launched.
+2024-12-20 12:43:13 [INFO] Logging out.
+2024-12-20 12:43:24 [INFO] Student logged in successfully. Username: peter
+2024-12-20 12:43:27 [INFO] Student clicked 'Logout'
+2024-12-20 12:43:28 [INFO] User exited the login page.
+2024-12-20 13:11:47 [INFO] Login page launched.
+2024-12-20 13:11:56 [INFO] Admin logged in successfully.
+2024-12-20 13:11:56 [INFO] Dashboard launched.
+2024-12-20 13:12:01 [INFO] Navigating to New Student form.
+2024-12-20 13:12:14 [INFO] Attempting to insert student: 2101442, peter
+2024-12-20 13:12:15 [INFO] Successfully inserted student: 2101442, peter
+2024-12-20 13:12:17 [INFO] Student form closed.
+2024-12-20 13:12:18 [INFO] Navigating to Add Book form.
+2024-12-20 13:12:31 [INFO] Attempting to save new book. Book ID: 1
+2024-12-20 13:12:31 [INFO] New book added successfully. Book ID: 1
+2024-12-20 13:12:34 [INFO] User closed the 'New Book' page.
+2024-12-20 13:12:38 [INFO] Logging out.
+2024-12-20 13:12:47 [INFO] Student logged in successfully. Username: peter
+2024-12-20 13:12:49 [INFO] Student clicked 'Borrow Book'
+2024-12-20 13:12:59 [INFO] Borrow button clicked - Book ID: 1, Student ID: 2101442, Borrow Date: 05-12-2024, Due Date: 06-12-2024
+2024-12-20 13:13:00 [INFO] New borrow record created: Book ID 1
+2024-12-20 13:13:01 [INFO] Closing Borrow window and returning to Student Dashboard.
+2024-12-20 13:13:03 [INFO] Student clicked 'Return Book'
+2024-12-20 13:13:10 [INFO] Searching for book with ID: 1 and student ID: 2101442
+2024-12-20 13:13:10 [INFO] Book found and information displayed for bookID: 1
+2024-12-20 13:13:11 [INFO] Attempting to return book with ID: 1 by studentID: 2101442
+2024-12-20 13:13:13 [INFO] Book returned successfully for studentID: 2101442
+2024-12-20 13:13:15 [INFO] Return book form closed and StudentDashboard opened.
+2024-12-20 13:13:16 [INFO] Student clicked 'Borrow Book'
+2024-12-20 13:13:26 [INFO] Borrow button clicked - Book ID: 1, Student ID: 2101442, Borrow Date: 13-12-2024, Due Date: 21-12-2024
+2024-12-20 13:13:27 [INFO] Book successfully borrowed again: Book ID 1
+2024-12-20 13:13:29 [INFO] Closing Borrow window and returning to Student Dashboard.
+2024-12-20 13:13:30 [INFO] Student clicked 'Logout'
+2024-12-20 13:13:31 [INFO] User exited the login page.
+2024-12-20 13:31:11 [INFO] Login page launched.
+2024-12-20 13:31:20 [INFO] Admin logged in successfully.
+2024-12-20 13:31:20 [INFO] Dashboard launched.
+2024-12-20 13:31:24 [INFO] Navigating to New Student form.
+2024-12-20 13:31:42 [INFO] Attempting to insert student: sara, sara
+2024-12-20 13:31:43 [INFO] Successfully inserted student: sara, sara
+2024-12-20 13:31:44 [INFO] Student form closed.
+2024-12-20 13:31:46 [INFO] Navigating to Add Book form.
+2024-12-20 13:32:00 [INFO] Attempting to save new book. Book ID: 2
+2024-12-20 13:32:00 [INFO] New book added successfully. Book ID: 2
+2024-12-20 13:32:03 [INFO] User closed the 'New Book' page.
+2024-12-20 13:32:03 [INFO] Logging out.
+2024-12-20 13:32:09 [INFO] Student logged in successfully. Username: sara
+2024-12-20 13:32:09 [INFO] Student Dashboard launched.
+2024-12-20 13:32:12 [INFO] Student clicked 'Borrow Book'
+2024-12-20 13:32:21 [INFO] Borrow button clicked - Book ID: sara, Student ID: sara, Borrow Date: 07-12-2024, Due Date: 08-12-2024
+2024-12-20 13:32:22 [INFO] New borrow record created: Book ID sara
+2024-12-20 13:32:24 [INFO] Student Dashboard launched.
+2024-12-20 13:32:24 [INFO] Closing Borrow window and returning to Student Dashboard.
+2024-12-20 13:32:27 [INFO] Student clicked 'Return Book'
+2024-12-20 13:32:30 [INFO] Searching for book with ID: sara and student ID: sara
+2024-12-20 13:32:30 [INFO] Book found and information displayed for bookID: sara
+2024-12-20 13:32:31 [INFO] Attempting to return book with ID: sara by studentID: sara
+2024-12-20 13:32:33 [INFO] Book returned successfully for studentID: sara
+2024-12-20 13:32:34 [INFO] Student Dashboard launched.
+2024-12-20 13:32:34 [INFO] Return book form closed and StudentDashboard opened.
+2024-12-20 13:32:35 [INFO] Student clicked 'Borrow Book'
+2024-12-20 13:32:41 [INFO] Borrow button clicked - Book ID: sara, Student ID: sara, Borrow Date: 25-12-2024, Due Date: 26-12-2024
+2024-12-20 13:32:43 [INFO] Book successfully borrowed again: Book ID sara
+2024-12-20 13:32:44 [INFO] Student Dashboard launched.
+2024-12-20 13:32:44 [INFO] Closing Borrow window and returning to Student Dashboard.
+2024-12-20 13:32:45 [INFO] Student clicked 'Logout'
+2024-12-20 13:32:45 [INFO] User exited the login page.
+2024-12-20 13:35:30 [INFO] Dashboard launched.
+2024-12-20 13:36:05 [INFO] Admin Dashboard launched.
+2024-12-20 13:36:08 [INFO] Logging out.
+2024-12-20 13:36:10 [INFO] User exited the login page.
+2024-12-20 14:02:21 [INFO] Login page launched.
+2024-12-20 14:51:21 [INFO] Login page launched.
+2024-12-20 14:51:30 [INFO] Admin logged in successfully.
+2024-12-20 14:51:30 [INFO] Admin Dashboard launched.
+2024-12-20 14:51:34 [INFO] Navigating to New Student form.
+2024-12-20 14:51:46 [INFO] Attempting to insert student: 2101442, peter
+2024-12-20 14:51:46 [INFO] Successfully inserted student: 2101442, peter
+2024-12-20 14:51:49 [INFO] Student form closed.
+2024-12-20 14:51:50 [INFO] Navigating to Add Book form.
+2024-12-20 14:52:06 [INFO] Attempting to save new book. Book ID: 1
+2024-12-20 14:52:06 [INFO] New book added successfully. Book ID: 1
+2024-12-20 14:52:09 [INFO] User closed the 'New Book' page.
+2024-12-20 14:52:10 [INFO] Logging out.
+2024-12-20 14:52:17 [INFO] Student logged in successfully. Username: peter
+2024-12-20 14:52:17 [INFO] Student Dashboard launched.
+2024-12-20 14:52:19 [INFO] Student clicked 'Borrow Book'
+2024-12-20 14:52:36 [INFO] Borrow button clicked - Book ID: 1, Student ID: 2101442, Borrow Date: 04-12-2024, Due Date: 05-12-2024
+2024-12-20 14:52:37 [INFO] New borrow record created: Book ID 1
+2024-12-20 14:52:39 [INFO] Student Dashboard launched.
+2024-12-20 14:52:39 [INFO] Closing Borrow window and returning to Student Dashboard.
+2024-12-20 14:52:40 [INFO] Student clicked 'Return Book'
+2024-12-20 14:52:47 [INFO] Searching for book with ID: 1 and student ID: 2101442
+2024-12-20 14:52:47 [INFO] Book found and information displayed for bookID: 1
+2024-12-20 14:52:54 [INFO] Attempting to return book with ID: 1 by studentID: 2101442
+2024-12-20 14:52:55 [INFO] Book returned successfully for studentID: 2101442
+2024-12-20 14:52:57 [INFO] Student Dashboard launched.
+2024-12-20 14:52:57 [INFO] Return book form closed and StudentDashboard opened.
+2024-12-20 14:52:57 [INFO] Student clicked 'Logout'
+2024-12-20 14:52:59 [INFO] User exited the login page.
+2024-12-20 14:59:57 [INFO] New Book page launched.
+2024-12-20 15:00:21 [INFO] Attempting to save new book. Book ID: 2
+2024-12-20 15:00:22 [INFO] New book added successfully. Book ID: 2
+2024-12-20 15:00:28 [INFO] User closed the 'New Book' page.
+2024-12-20 15:03:33 [INFO] New Book page launched.
+2024-12-20 15:03:41 [INFO] Attempting to save new book. Book ID: 3
+2024-12-20 15:04:23 [INFO] Attempting to save new book. Book ID: 3
+2024-12-20 15:04:23 [INFO] New book added successfully. Book ID: 3
+2024-12-20 15:04:55 [INFO] User closed the 'New Book' page.
+2024-12-20 15:10:42 [INFO] Login page launched.
+2024-12-20 15:11:48 [INFO] Admin logged in successfully.
+2024-12-20 15:11:48 [INFO] Admin Dashboard launched.
+2024-12-20 15:11:52 [INFO] Navigating to New Student form.
+2024-12-20 15:12:10 [INFO] Attempting to insert student: 2101442, peter
+2024-12-20 15:12:11 [INFO] Successfully inserted student: 2101442, peter
+2024-12-20 15:12:13 [INFO] Student form closed.
+2024-12-20 15:12:19 [INFO] Navigating to Add Book form.
+2024-12-20 15:12:43 [INFO] Attempting to save new book. Book ID: 1
+2024-12-20 15:12:43 [INFO] New book added successfully. Book ID: 1
+2024-12-20 15:12:50 [INFO] User closed the 'New Book' page.
+2024-12-20 15:12:54 [INFO] Logging out.
+2024-12-20 15:13:02 [INFO] Student logged in successfully. Username: peter
+2024-12-20 15:13:02 [INFO] Student Dashboard launched.
+2024-12-20 15:13:07 [INFO] Student clicked 'Borrow Book'
+2024-12-20 15:13:19 [INFO] Borrow button clicked - Book ID: 1, Student ID: 2101442, Borrow Date: 17-12-2024, Due Date: 18-12-2024
+2024-12-20 15:13:20 [INFO] New borrow record created: Book ID 1
+2024-12-20 15:13:35 [INFO] Student Dashboard launched.
+2024-12-20 15:13:35 [INFO] Closing Borrow window and returning to Student Dashboard.
+2024-12-20 15:13:36 [INFO] Student clicked 'Return Book'
+2024-12-20 15:13:41 [INFO] Searching for book with ID: 1 and student ID: 2101442
+2024-12-20 15:13:41 [INFO] Book found and information displayed for bookID: 1
+2024-12-20 15:13:42 [INFO] Attempting to return book with ID: 1 by studentID: 2101442
+2024-12-20 15:13:43 [INFO] Book returned successfully for studentID: 2101442
+2024-12-20 15:13:44 [INFO] Student Dashboard launched.
+2024-12-20 15:13:44 [INFO] Return book form closed and StudentDashboard opened.
+2024-12-20 15:13:49 [INFO] Student clicked 'Borrow Book'
+2024-12-20 15:13:58 [INFO] Borrow button clicked - Book ID: 1, Student ID: 2101442, Borrow Date: 11-12-2024, Due Date: 13-12-2024
+2024-12-20 15:13:59 [INFO] Book successfully borrowed again: Book ID 1
+2024-12-20 15:14:00 [INFO] Student Dashboard launched.
+2024-12-20 15:14:00 [INFO] Closing Borrow window and returning to Student Dashboard.
+2024-12-20 15:14:01 [INFO] Student clicked 'Return Book'
+2024-12-20 15:14:05 [INFO] Searching for book with ID: 1 and student ID: 2101442
+2024-12-20 15:14:05 [INFO] Book found and information displayed for bookID: 1
+2024-12-20 15:14:05 [INFO] Attempting to return book with ID: 1 by studentID: 2101442
+2024-12-20 15:14:07 [INFO] Book returned successfully for studentID: 2101442
+2024-12-20 15:14:08 [INFO] Student Dashboard launched.
+2024-12-20 15:14:08 [INFO] Return book form closed and StudentDashboard opened.
+2024-12-20 15:14:09 [INFO] Student clicked 'Logout'
+2024-12-20 15:14:10 [INFO] User exited the login page.
