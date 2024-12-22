@@ -10,6 +10,7 @@ import project.Logger;  // Import the Logger class
 import project.BookCategory;
 import project.BookCategoryFactory;
 import project.BookRegistry;
+import project.NotificationProxy;
 
 /**
  *
@@ -192,6 +193,11 @@ public class NewBook extends javax.swing.JFrame {
 
         String bookDetails = "Book ID: " + bookID + ", Name: " + name + ", Publisher: " + publisher + ", Price: " + priceOfBook + ", Year: " + yearOfPub;
         BookRegistry.getInstance().addBook(bookDetails);
+
+        // Use NotificationProxy to send the notification
+        boolean isAdmin = true; // Assume the user is an admin for now
+        NotificationProxy proxy = new NotificationProxy(isAdmin);
+        proxy.update("New book added: " + bookDetails);
 
         setVisible(false);
         new NewBook().setVisible(true);

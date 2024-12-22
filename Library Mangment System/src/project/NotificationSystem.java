@@ -22,7 +22,7 @@ public class NotificationSystem implements Observer {
     @Override
 public void update(String message) {
     System.out.println("Notification: " + message);  // This should print the notification to the console.
-    logger.logInfo("Received notification: " + message); // Add this log for more insights
+    logger.logInfo("Received notification: " + message);
 }
 
 }
