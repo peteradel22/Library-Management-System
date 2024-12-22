@@ -9,6 +9,7 @@ import project.ConnectionProvider;
 import project.Logger;  // Import the Logger class
 import project.BookCategory;
 import project.BookCategoryFactory;
+import project.BookRegistry;
 
 /**
  *
@@ -45,6 +46,7 @@ public class NewBook extends javax.swing.JFrame {
         price = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,12 +87,20 @@ public class NewBook extends javax.swing.JFrame {
             }
         });
 
+        jLabel6.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        jLabel6.setText("Add Book");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(172, 172, 172)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton2))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(86, 86, 86)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,23 +110,22 @@ public class NewBook extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addComponent(jLabel2))
                         .addGap(42, 42, 42)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(book)
-                            .addComponent(Name)
-                            .addComponent(pub)
-                            .addComponent(price)
-                            .addComponent(year, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(172, 172, 172)
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(book)
+                                .addComponent(Name)
+                                .addComponent(pub)
+                                .addComponent(price)
+                                .addComponent(year, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)))))
                 .addContainerGap(104, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel6)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(book, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -140,7 +149,7 @@ public class NewBook extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pack();
@@ -156,7 +165,7 @@ public class NewBook extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-           String bookID = book.getText();
+    String bookID = book.getText();
     String name = Name.getText();
     String publisher = pub.getText();
     String priceOfBook = price.getText();
@@ -164,35 +173,32 @@ public class NewBook extends javax.swing.JFrame {
     String category = JOptionPane.showInputDialog("Enter book category (SoftwareEngineering, Management, AI)");
 
     try {
-        // Log the attempt to save a new book
         logger.logInfo("Attempting to save new book. Book ID: " + bookID);
 
-        // Use the Factory to get the correct book category
         BookCategory bookCategory = BookCategoryFactory.getBookCategory(category);
-
         if (bookCategory != null) {
-            bookCategory.displayCategory();  // Display category type
+            bookCategory.displayCategory();
         } else {
             JOptionPane.showMessageDialog(null, "Invalid category.");
             return;
         }
 
-        // Access the Singleton instance and get the connection
         Connection con = ConnectionProvider.getInstance().getConnection();
         Statement st = con.createStatement();
         st.executeUpdate("INSERT INTO book VALUES('" + bookID + "','" + name + "','" + publisher + "','" + priceOfBook + "','" + yearOfPub + "')");
 
-        // Success log and message
         logger.logInfo("New book added successfully. Book ID: " + bookID);
         JOptionPane.showMessageDialog(null, "Successfully Updated");
+
+        String bookDetails = "Book ID: " + bookID + ", Name: " + name + ", Publisher: " + publisher + ", Price: " + priceOfBook + ", Year: " + yearOfPub;
+        BookRegistry.getInstance().addBook(bookDetails);
+
         setVisible(false);
         new NewBook().setVisible(true);
 
     } catch (Exception e) {
-        // Log the error
         logger.logError("Error adding new book. Book ID: " + bookID + " - " + e.getMessage());
-
-        JOptionPane.showMessageDialog(null, "Book ID Already Exist");
+        JOptionPane.showMessageDialog(null, "Book ID Already Exists");
         setVisible(false);
         new NewBook().setVisible(true);
     }
@@ -201,28 +207,28 @@ public class NewBook extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-     public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+   public static void main(String args[]) {
+    try {
+        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            if ("Nimbus".equals(info.getName())) {
+                javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                break;
             }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-
-        // Log when the NewBook page is launched
-        logger.logInfo("New Book page launched.");
-
-        // Create and display the form
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new NewBook().setVisible(true);
-            }
-        });
+    } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+        java.util.logging.Logger.getLogger(NewBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     }
+
+    // Log when the NewBook page is launched
+    logger.logInfo("New Book page launched.");
+
+    // Create and display the form
+    java.awt.EventQueue.invokeLater(new Runnable() {
+        public void run() {
+            new NewBook().setVisible(true);
+        }
+    });
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Name;
@@ -234,6 +240,7 @@ public class NewBook extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField price;
     private javax.swing.JTextField pub;
     private javax.swing.JTextField year;
