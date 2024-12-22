@@ -9,6 +9,9 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 import project.ConnectionProvider;
 import project.Logger; // Import your custom Logger
+import project.BorrowBookCommand;
+import project.Invoker;
+import project.Command;
 
 /**
  *
@@ -154,51 +157,22 @@ public class Borrow extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
- String bookID = jTextField1.getText();
-String studentID = jTextField2.getText();
-SimpleDateFormat dFormat = new SimpleDateFormat("dd-MM-yyyy");
-String borrowDate = dFormat.format(jDateChooser1.getDate());
-String dueDate = dFormat.format(jDateChooser2.getDate());
-   logger.logInfo("Borrow button clicked - Book ID: " + bookID + ", Student ID: " + studentID + 
-                       ", Borrow Date: " + borrowDate + ", Due Date: " + dueDate);
-try {
-    Connection con = ConnectionProvider.getInstance().getConnection();
-    Statement st = con.createStatement();
+    String bookID = jTextField1.getText();
+    String studentID = jTextField2.getText();
+    SimpleDateFormat dFormat = new SimpleDateFormat("dd-MM-yyyy");
+    String borrowDate = dFormat.format(jDateChooser1.getDate());
+    String dueDate = dFormat.format(jDateChooser2.getDate());
+    logger.logInfo("Borrow button clicked - Book ID: " + bookID + ", Student ID: " + studentID + 
+                   ", Borrow Date: " + borrowDate + ", Due Date: " + dueDate);
 
-    // Check if the book already exists
-    ResultSet rs = st.executeQuery("SELECT * FROM borrow WHERE bookID='" + bookID + "'");
-    if (rs.next()) {
-        // Book exists, check its return status
-        if (rs.getString("returnBook").equals("NO")) {
-            JOptionPane.showMessageDialog(null, "This book is currently borrowed and not returned yet.");
-            logger.logInfo("This book is currently borrowed and not returned yet: Book ID " + bookID);
-
-        } else {
-            // Update the record to indicate the book is borrowed again
-            st.executeUpdate("UPDATE borrow SET studentID='" + studentID + "', borrowDate='" + borrowDate + 
-                             "', dueDate='" + dueDate + "', returnBook='NO' WHERE bookID='" + bookID + "'");
-            JOptionPane.showMessageDialog(null, "Book Successfully Borrowed Again!");
-            logger.logInfo("Book successfully borrowed again: Book ID " + bookID);
-
-
-        }
-    } else {
-        // Book does not exist, insert a new record
-        st.executeUpdate("INSERT INTO borrow (bookID, studentID, borrowDate, dueDate, returnBook) VALUES ('" 
-                + bookID + "', '" + studentID + "', '" + borrowDate + "', '" + dueDate + "', 'NO')");
-        JOptionPane.showMessageDialog(null, "Book Successfully Borrowed!");
-        logger.logInfo("New borrow record created: Book ID " + bookID);
-
-
-    }
+    // Use Command Pattern
+    BorrowBookCommand borrowBookCommand = new BorrowBookCommand(bookID, studentID, borrowDate, dueDate);
+    Invoker invoker = new Invoker();
+    invoker.setCommand(borrowBookCommand);
+    invoker.executeCommand();
 
     setVisible(false);
     new Borrow().setVisible(true);
-} catch (Exception e) {
-    logger.logError("Connection Error: " + e.getMessage());
-    JOptionPane.showMessageDialog(null, "Connection Error: " + e.getMessage());
-}
-
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

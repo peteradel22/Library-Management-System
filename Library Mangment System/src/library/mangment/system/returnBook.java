@@ -7,6 +7,9 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 import project.ConnectionProvider;
 import project.Logger; // Import your custom Logger class
+import project.Command;
+import project.ReturnCommand;
+import project.SearchCommand;
 
 /**
  *
@@ -14,7 +17,8 @@ import project.Logger; // Import your custom Logger class
  */
 public class returnBook extends javax.swing.JFrame {
     private static final Logger logger = Logger.getInstance();  
-
+    private Command searchCommand;
+    private Command returnCommand;
     /**
      * Creates new form returnBook
      */
@@ -152,70 +156,21 @@ public class returnBook extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String bookID=jTextField1.getText();
-        String studentID=jTextField2.getText();
-       try {
-          // Log attempt to search
-         logger.logInfo("Searching for book with ID: " + bookID + " and student ID: " + studentID);
-        // Access the Singleton instance and get the connection
-        Connection con = ConnectionProvider.getInstance().getConnection();
-        Statement st = con.createStatement();
-        ResultSet rs= st.executeQuery("select * from borrow where bookID='"+bookID+"'and StudentID='"+studentID+"'");
-        if(rs.next())
-        {
-            jTextField3.setText(rs.getString(3));
-            jTextField4.setText(rs.getString(4));
-            jTextField1.setEditable(false);
-            jTextField2.setEditable(false);
-            logger.logInfo("Book found and information displayed for bookID: " + bookID);
+         String bookID = jTextField1.getText();
+        String studentID = jTextField2.getText();
 
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "Book is Not Borrowed To This Student");
-            setVisible(false);
-            new returnBook().setVisible(true);
-            logger.logInfo("Book not found for studentID: " + studentID);
-
-        }
-    } 
-       catch (Exception e) {
-        logger.logError("Error occurred during search: " + e.getMessage());
-        JOptionPane.showMessageDialog(null, "Connection Error");
-      
-    }
+        // Create a search command and execute it
+        searchCommand = new SearchCommand(bookID, studentID, jTextField1, jTextField2, jTextField3, jTextField4);
+        searchCommand.execute();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
     String bookID = jTextField1.getText();
-String studentID = jTextField2.getText();
+        String studentID = jTextField2.getText();
 
-try {
-      // Log attempt to return book
-    logger.logInfo("Attempting to return book with ID: " + bookID + " by studentID: " + studentID);
-    Connection con = ConnectionProvider.getInstance().getConnection();
-    Statement st = con.createStatement();
-
-    // Check if the book is currently borrowed by the student
-    ResultSet rs = st.executeQuery("SELECT * FROM borrow WHERE bookID='" + bookID + "' AND studentID='" + studentID + "' AND returnBook='NO'");
-    if (rs.next()) {
-        // Update return status
-        st.executeUpdate("UPDATE borrow SET returnBook='YES' WHERE studentID='" + studentID + "' AND bookID='" + bookID + "'");
-        JOptionPane.showMessageDialog(null, "Book Successfully Returned");
-        logger.logInfo("Book returned successfully for studentID: " + studentID);
-
-    } else {
-        JOptionPane.showMessageDialog(null, "This book is not currently borrowed or already returned.");
-        logger.logInfo("Book not currently borrowed or already returned for studentID: " + studentID);
-
-    }
-
-    setVisible(false);
-    new returnBook().setVisible(true);
-} catch (Exception e) {
-    logger.logError("Error occurred during book return: " + e.getMessage());
-    JOptionPane.showMessageDialog(null, "Connection Error: " + e.getMessage());
-}
-
+        // Create a return command and execute it
+        returnCommand = new ReturnCommand(bookID, studentID);
+        returnCommand.execute();
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
